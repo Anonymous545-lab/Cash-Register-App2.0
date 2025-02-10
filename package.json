@@ -38,6 +38,6 @@
     "web-vitals": "^4.2.4"
   },
   "engines": {
-    "node": "22.x" // Use the latest version
+    "node": "20.13.1" // Use the version supported by Netlify
   }
 }
