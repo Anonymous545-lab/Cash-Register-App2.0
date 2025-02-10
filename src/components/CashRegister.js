@@ -9,6 +9,14 @@ function CashRegister({ userName }) {
     const [animationMessage, setAnimationMessage] = useState('');
     const [animationType, setAnimationType] = useState('');
 
+    const addAmount = () => {
+        if (amount !== 0) {
+            updateTransactions({ amount: parseFloat(amount), type: 'add', user: userName, date: new Date().toISOString() });
+            inputRef.current.value = ''; // Clear the input field
+            triggerAnimation('You are such a star!', 'add');
+        }
+    };
+
     useEffect(() => {
         const savedTransactions = JSON.parse(localStorage.getItem('transactions')) || [];
         setTransactions(savedTransactions);
@@ -28,15 +36,7 @@ function CashRegister({ userName }) {
         return () => {
             document.removeEventListener('keydown', handleKeyDown);
         };
-    }, [addAmount]); // Added 'addAmount' as a dependency
-
-    const addAmount = () => {
-        if (amount !== 0) {
-            updateTransactions({ amount: parseFloat(amount), type: 'add', user: userName, date: new Date().toISOString() });
-            inputRef.current.value = ''; // Clear the input field
-            triggerAnimation('You are such a star!', 'add');
-        }
-    };
+    }, [addAmount]); // 'addAmount' as a dependency
 
     const deductAmount = () => {
         if (amount !== 0) {
