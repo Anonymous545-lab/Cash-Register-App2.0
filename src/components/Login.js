@@ -8,19 +8,6 @@ function Login({ setLoggedIn, setUserName }) {
     const usernameRef = useRef(null);
     const passwordRef = useRef(null);
 
-    useEffect(() => {
-        const handleKeyDown = (event) => {
-            if (event.key === 'Enter') {
-                handleLogin();
-            }
-        };
-
-        document.addEventListener('keydown', handleKeyDown);
-        return () => {
-            document.removeEventListener('keydown', handleKeyDown);
-        };
-    }, [username, password, handleLogin]); // Added 'handleLogin' as a dependency
-
     const handleLogin = () => {
         setError('');
 
@@ -51,6 +38,19 @@ function Login({ setLoggedIn, setUserName }) {
             })
             .catch(err => console.error('Error loading credentials:', err));
     };
+
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.key === 'Enter') {
+                handleLogin();
+            }
+        };
+
+        document.addEventListener('keydown', handleKeyDown);
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [username, password, handleLogin]); // 'handleLogin' as a dependency
 
     return (
         <div className="login-container">
