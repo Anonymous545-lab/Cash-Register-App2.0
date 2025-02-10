@@ -4,9 +4,9 @@
   "private": true,
   "dependencies": {
     "cra-template": "1.2.0",
-    "react": "^18.2.0",          // Update React to the latest stable version
-    "react-dom": "^18.2.0",      // Update ReactDOM to match React version
-    "react-router-dom": "^6.3.0", // Update react-router-dom to a stable version compatible with React 18
+    "react": "^18.2.0",          
+    "react-dom": "^18.2.0",     
+    "react-router-dom": "^6.3.0", 
     "react-scripts": "^5.0.1"
   },
   "scripts": {
@@ -38,6 +38,6 @@
     "web-vitals": "^4.2.4"
   },
   "engines": {
-    "node": "20.13.1" // Use the version supported by Netlify
+    "node": "20.13.1" 
   }
 }
